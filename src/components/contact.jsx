@@ -1,7 +1,6 @@
 function Contact() {
   return (
     <section id="contact" className="section">
-
       <h2>Contact Me</h2>
 
       <div className="contact-container">
