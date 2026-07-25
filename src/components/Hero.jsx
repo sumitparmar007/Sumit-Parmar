@@ -21,7 +21,7 @@ function Hero() {
 
       <div className="right">
         <img
-          src="sumit_image.jpeg"
+          src="/sumit_image.jpeg"
           alt="Sumit Parmar"
         />
       </div>
