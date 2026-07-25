@@ -1,0 +1,49 @@
+function Projects() {
+
+  const project = [
+
+    {
+      title:"AI Code Reviewer",
+      desc:"React + FastAPI + OpenAI"
+    },
+
+    {
+      title:"Face Recognition",
+      desc:"Python + OpenCV"
+    },
+
+    {
+      title:"Chatbot",
+      desc:"LLM + LangChain"
+    }
+
+  ];
+
+  return (
+
+    <section id="projects" className="section">
+
+      <h2>Projects</h2>
+
+      <div className="project-grid">
+
+        {project.map((p,index)=>(
+
+          <div className="project-card" key={index}>
+
+            <h3>{p.title}</h3>
+
+            <p>{p.desc}</p>
+
+          </div>
+
+        ))}
+
+      </div>
+
+    </section>
+
+  );
+}
+
+export default Projects;
