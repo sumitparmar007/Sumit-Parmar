@@ -4,7 +4,7 @@ from datetime import datetime
 from typing import Optional
 from fastapi import FastAPI, HTTPException, status
 from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel, EmailStr
+from pydantic import BaseModel
 
 # Initialize FastAPI App
 app = FastAPI(
@@ -47,7 +47,7 @@ init_db()
 # Pydantic Schemas
 class ContactRequest(BaseModel):
     name: str
-    email: EmailStr
+    email: str
     message: str
 
 class ContactResponse(BaseModel):
