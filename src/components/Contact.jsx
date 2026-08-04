@@ -10,22 +10,35 @@ function Contact() {
 
           <h3>Let's Connect</h3>
 
-          <p>
-            I'm currently looking for AI/ML Developer and
-            
-            AI Engineer. Feel free to contact me.
+          <p className="contact-desc">
+            I'm currently looking for AI/ML Developer and AI Engineer roles. Feel free to contact me.
           </p>
 
-          <p>📧 Email: parmarsumit06830@gmail.com</p>
+          <div className="contact-details">
+            <div className="contact-detail-item">
+              <span className="contact-icon">📧</span>
+              <span className="contact-text">
+                Email: <a href="mailto:parmarsumit06830@gmail.com">parmarsumit06830@gmail.com</a>
+              </span>
+            </div>
 
-          <p>📱 Phone: +91 9173720875</p>
+            <div className="contact-detail-item">
+              <span className="contact-icon">📱</span>
+              <span className="contact-text">
+                Phone: <a href="tel:+919173720875">+91 9173720875</a>
+              </span>
+            </div>
 
-          <p>📍 Bhavnagar, Gujarat, India</p>
+            <div className="contact-detail-item">
+              <span className="contact-icon">📍</span>
+              <span className="contact-text">Bhavnagar, Gujarat, India</span>
+            </div>
+          </div>
 
         </div>
 
         {/* Right Side */}
-        <form className="contact-form">
+        <form className="contact-form" onSubmit={(e) => e.preventDefault()}>
 
           <input
             type="text"
