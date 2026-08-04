@@ -7,7 +7,7 @@ function Hero() {
           <span className="iam">I'm </span>
           <span className="name">Sumit Parmar</span>
         </h2>
-        <h3>AI/ML & Full Stack Developer</h3>
+        <h3>AI/ML Developer and Full Stack Developer</h3>
         <p>
           Passionate about Artificial Intelligence,
           Machine Learning, and Full Stack Web Development.
