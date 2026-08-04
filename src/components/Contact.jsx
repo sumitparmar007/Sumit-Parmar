@@ -69,7 +69,7 @@ function Contact() {
           <h3>Let's Connect</h3>
 
           <p className="contact-desc">
-            I'm currently looking for AI/ML Developer and AI Engineer roles. Feel free to contact me.
+            I'm currently looking for AI/ML Developer and Full Stack Developer roles. Feel free to contact me.
           </p>
 
           <div className="contact-details">
