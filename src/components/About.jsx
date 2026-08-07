@@ -4,8 +4,7 @@ function About() {
 
       <h2>About Me</h2>
 
-      <p>
-       
+      <p>       
 
             Computer Engineering student and aspiring Python Developer with hands-on knowledge
           of Python programming, Object-Oriented Programming (OOP), Data Structures, SQL,
