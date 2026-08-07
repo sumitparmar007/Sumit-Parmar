@@ -8,16 +8,6 @@ function Projects() {
     },
 
     {
-      title:"Face Recognition",
-      desc:"Python + OpenCV"
-    },
-
-    {
-      title:"Chatbot",
-      desc:"LLM + LangChain"
-    },
-
-    {
       title:"Data Analysis Automation Platform",
       desc:"Django + Pandas + NumPy + Matplotlib + Scikit-learn"
     },
