@@ -1,10 +1,55 @@
 import sqlite3
 import os
+import smtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
 from datetime import datetime
 from typing import Optional
 from fastapi import FastAPI, HTTPException, status
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
+
+# Email Configuration
+EMAIL_SENDER = os.getenv("EMAIL_SENDER", "your_email@gmail.com")
+EMAIL_PASSWORD = os.getenv("EMAIL_PASSWORD", "your_app_password")
+SMTP_SERVER = "smtp.gmail.com"
+SMTP_PORT = 587
+
+def send_thank_you_email(user_email: str, user_name: str):
+    """Send a thank you email to the user."""
+    try:
+        subject = "Thank You for Contacting Me!"
+        body = f"""
+        <html>
+            <body style="font-family: Arial, sans-serif; background-color: #f4f4f4; padding: 20px;">
+                <div style="background-color: white; padding: 20px; border-radius: 8px; max-width: 600px; margin: auto;">
+                    <h2 style="color: #00a8ff;">Thank You, {user_name}!</h2>
+                    <p>Thank you for reaching out to me. I have received your message and will get back to you as soon as possible.</p>
+                    <p>I appreciate your interest and look forward to connecting with you.</p>
+                    <hr style="border: none; border-top: 1px solid #ddd; margin: 20px 0;">
+                    <p style="color: #666; font-size: 12px;">Best regards,<br>Sumit Parmar</p>
+                </div>
+            </body>
+        </html>
+        """
+        
+        msg = MIMEMultipart("alternative")
+        msg["Subject"] = subject
+        msg["From"] = EMAIL_SENDER
+        msg["To"] = user_email
+        
+        msg.attach(MIMEText(body, "html"))
+        
+        with smtplib.SMTP(SMTP_SERVER, SMTP_PORT) as server:
+            server.starttls()
+            server.login(EMAIL_SENDER, EMAIL_PASSWORD)
+            server.send_message(msg)
+        
+        print(f"Thank you email sent to {user_email}")
+        return True
+    except Exception as e:
+        print(f"Error sending email to {user_email}: {str(e)}")
+        return False
 
 # Initialize FastAPI App
 app = FastAPI(
@@ -93,7 +138,10 @@ def submit_contact(contact: ContactRequest):
         inserted_id = cursor.lastrowid
         conn.close()
 
-        print(f" NEW MESSAGE RECEIVED from {name} ({email}): {message}")
+        print(f"NEW MESSAGE RECEIVED from {name} ({email}): {message}")
+        
+        # Send thank you email to user
+        send_thank_you_email(email, name)
 
         return ContactResponse(
             status="success",
