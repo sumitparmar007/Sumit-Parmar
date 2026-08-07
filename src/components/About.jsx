@@ -15,8 +15,6 @@ function About() {
           model training, evaluation,and deployment. Familiar with MySQL, Git, GitHub,
           Jupyter Notebook, and VS Code. Interested  in building scalable Python applications, 
           AI-powered solutions, automation systems, and data-driven applications.
-
-
       </p>
 
     </section>
